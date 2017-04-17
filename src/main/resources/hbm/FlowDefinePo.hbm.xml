@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="rod_ap_define" name="com.uws.apw.model.FlowDefinePo">
+  	
+    <id name="id" column="ID">
+      <generator class="uuid.hex"/>
+    </id>
+     <property name="processKey" column="PROCESS_KEY"  length="30" type="java.lang.String"   /> 
+     <property name="processName" column="PROCESS_NAME"  length="100" type="java.lang.String"   /> 
+     <many-to-one name="status" class="com.uws.sys.model.Dic" column="STATUS" not-found="ignore"/>
+     <many-to-one name="creator" column="CREATER" class="com.uws.user.model.User" not-found="ignore"/> 
+     <property name="createTime" column="CREATE_TIME"  length="50" type="java.util.Date"   />
+     <property name="updateTime" column="UPDATE_TIME"  length="50" type="java.util.Date"   />
+  </class>
+</hibernate-mapping>

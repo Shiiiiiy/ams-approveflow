@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="rod_ap_config" name="com.uws.apw.model.FlowConfigPo">
+  	
+    <id name="id" column="ID">
+      <generator class="uuid.hex"/>
+    </id>
+    <many-to-one column="PROCESS_ID" class="com.uws.apw.model.FlowDefinePo" name="flowDefinePo" lazy="false" not-found="ignore"/>
+    <property name="taskName" column="TASK_NAME"/>
+    <many-to-one column="POSITION_TYPE" class="com.uws.sys.model.Dic" name="ptype" lazy="false" not-found="ignore"/>
+    <property name="agentPosition" column="AGENT_POSITION"/>
+    <property name="agentPosname" column="AGENT_POSNAME"/>
+    <property name="taskSeq" column="TASK_SEQ"/>
+    <many-to-one column="CREATER" class="com.uws.user.model.User" name="creater" lazy="false" not-found="ignore"/>
+    <property name="createTime" column="CREATE_TIME"/>
+    <property name="updateTime" column="UPDATE_TIME"/>
+    <many-to-one column="DEL_STATUS" class="com.uws.sys.model.Dic" name="delStatus" lazy="false" not-found="ignore"/>
+  </class>
+</hibernate-mapping>

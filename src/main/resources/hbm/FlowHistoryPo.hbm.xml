@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="rod_ap_history" name="com.uws.apw.model.FlowHistoryPo">
+    <id name="id" column="ID">
+      <generator class="uuid.hex"/>
+    </id>
+    <property name="objectId" column="OBJECT_ID"/>
+    <many-to-one column="PROCESS_ID" class="com.uws.apw.model.FlowDefinePo" name="flowDefinePo" lazy="false" not-found="ignore"/>
+    <property name="processKey" column="PROCESS_KEY"/>
+    <many-to-one column="TASK_ID" class="com.uws.apw.model.FlowConfigPo" name="flowConfigPo" lazy="false" not-found="ignore"/>
+    <property name="taskName" column="TASK_NAME"/>
+    <many-to-one column="APPROVER_ID" class="com.uws.user.model.User" name="approver" lazy="false" not-found="ignore"/>
+    <many-to-one column="APPROVE_RESULT" class="com.uws.sys.model.Dic"  name="approveResultDic" lazy="false" not-found="ignore"/>
+    <property name="suggest" column="SUGGEST"/>
+    <many-to-one column="IS_VALID" class="com.uws.sys.model.Dic" name="isValid" lazy="false" not-found="ignore"/>
+    <property name="approveToken" column="APPROVE_TOKEN"/>
+    <property name="approveSeq" column="APPROVE_SEQ"/>
+    <many-to-one column="INITIATOR" class="com.uws.user.model.User" name="initiator" lazy="false" not-found="ignore"/>
+    <property name="submitTime" column="SUBMIT_TIME"/>
+    <property name="approveTime" column="APPROVE_TIME"/>
+  </class>
+</hibernate-mapping>

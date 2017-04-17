@@ -1,0 +1,5 @@
+二次开发安装部署操作步骤：
+1、该jar包导入web项目lib中；
+2、将该jar包中的web目录下内容copy到对应目录下；css、img、js、excel放到webapp下，ftl目录放至WEB-INF目录下；
+4、删除jar包中的web目录下所有内容；
+5、执行apw-db.sql可以初始化该模块所需的数据表及数据
